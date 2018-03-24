@@ -18,7 +18,7 @@ This is an example of data:
 Now, with the use of **Haar Cascade Detectors**, we are able to get
 faces as folows, for the given class as:
 
-![Processed Data](processed_images/image_3.jpg)
+![Processed Data](processed_images/image_8.jpg)
 
 Also, we extract and store each face in another directory as:
 
