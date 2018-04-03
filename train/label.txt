@@ -8,7 +8,7 @@
 8 Niranjan
 9 Pragya
 10 Anuj
-11 Abhinab
+11 Abhinav
 12 Suraj
 13 Vamshi
 14 Swetha
@@ -288,7 +288,7 @@
 297 Ansuman
 298 MTech_two
 299 Srinika
-300 Abishek
+300 Abhishek
 301 Pratik
 302 Sanjutha
 303 Neel
@@ -344,7 +344,7 @@
 355 Ramanan
 356 Divyang
 357 Pooja
-358 Gereeshma
+358 Greeshma
 359 Debajyoti
 360 Mohit
 361 Ankit

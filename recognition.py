@@ -41,36 +41,60 @@ cv2.imwrite('Mean Face.jpg', mean_image_photo)
 for i in range(len(images)):
    mean_reduced_images[i] = images[i] - mean_image
 
-r = 25 #no.of pc -1
+r = 50 #no.of pc -1
 u,sigma,v = np.linalg.svd(mean_reduced_images)
 red_dim = mean_reduced_images.dot(np.transpose(v[:r,:]))
-
+cv2.imwrite('Eigen_Face_1.jpg', np.reshape(v[10,:],[60,60]))
 # photo = np.reshape(red_dim[10],[5,5])
 # plot.imshow(photo)
 # plot.show()
+
+
+
+Attendance = dict()
+
+for label in labels:
+    Attendance[label] = 'Absent'
 
 logistic_regression_model = LogisticRegression()
 logistic_regression_model.fit(red_dim, labels)
 
 # file_path = input('Enter the File Path of today\'s picture: ')
-file_path = os.path.join('test','test.jpg')
-
-image = cv2.imread(file_path)
-img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+img = []
+for file_path in os.listdir('test'):
+    if file_path != 'attendance.txt':
+        image=cv2.imread(os.path.join('test',file_path))
+        img.append(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY))
 
 face_cascade_alt2 = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_cascade_alt = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
+face_cascade_alt_tree = cv2.CascadeClassifier('haarcascade_frontalface_alt_tree.xml')
 
 list_of_faces = []
-faces = face_cascade_alt2.detectMultiScale(img, 1.3, 5)
-for (x,y,w,h) in faces:
-    # cv.rectangle(image['GRAY'],(x,y),(x+w,y+h),(255,0,0), 8)
-    list_of_faces.append(stretch(img[y:y+h, x:x+w]))
-faces_2 = face_cascade.detectMultiScale(img, 1.3, 5)
-for (x,y,w,h) in faces_2:
-    if (x,y,w,h) not in faces:
-        # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
-        list_of_faces.append(stretch(img[y:y + h, x:x + w]))
+for image in img:
+    faces = face_cascade_alt2.detectMultiScale(image, 1.3, 5)
+    for (x,y,w,h) in faces:
+        # cv.rectangle(image['GRAY'],(x,y),(x+w,y+h),(255,0,0), 8)
+        list_of_faces.append(stretch(image[y:y+h, x:x+w]))
+    faces_2 = face_cascade.detectMultiScale(image, 1.3, 5)
+    for (x,y,w,h) in faces_2:
+        if (x,y,w,h) not in faces:
+            # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
+            list_of_faces.append(stretch(image[y:y + h, x:x + w]))
+    faces_3 = face_cascade_alt.detectMultiScale(image, 1.3, 5)
+    for (x, y, w, h) in faces_3:
+        if (x, y, w, h) not in faces:
+            # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
+            list_of_faces.append(stretch(image[y:y + h, x:x + w]))
+    faces_4 = face_cascade_alt_tree.detectMultiScale(image, 1.3, 5)
+    for (x, y, w, h) in faces_4:
+        if (x, y, w, h) not in faces:
+            # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
+            list_of_faces.append(stretch(image[y:y + h, x:x + w]))
+
+for file in os.listdir('buffer'):
+    os.remove(os.path.join('buffer',file))
 
 i=0
 for face in list_of_faces:
@@ -83,17 +107,39 @@ for file in os.listdir('buffer'):
     img = img.resize((60,60), Image.ANTIALIAS)
     list_of_faces.append(img)
 
-Attendance = dict()
 
-for label in labels:
-    Attendance[label] = 'Absent'
 
 for face in list_of_faces:
     f = np.reshape(face,[3600,])
     f = f - mean_image
     X = f.dot(np.transpose(v[:r,:]))
-    print(logistic_regression_model.predict([X]))
+    # print(logistic_regression_model.predict([X]))
     Attendance[logistic_regression_model.predict(X)[0]] = 'Present'
 
-for label,atd in Attendance.items():
-    print('%s - %s'%(label,atd))
+# for label,atd in Attendance.items():
+    # print('%s - %s'%(label,atd))
+
+with open('test/attendance.txt','w') as file:
+    file.write(' Attendance '.center(20))
+    file.write('\n\n')
+    for label, atd in Attendance.items():
+        file.write(('%s - %s'%(label,atd)).center(20))
+        file.write('\n')
+
+    file.write('\n\n')
+
+    file.write('Present'.center(20))
+    file.write('\n')
+    for label, atd in Attendance.items():
+        if atd == 'Present':
+            file.write(('%s'%label).center(20))
+            file.write('\n')
+
+    file.write('\n')
+    file.write('Absent'.center(20))
+    file.write('\n')
+    for label, atd in Attendance.items():
+        if atd == 'Absent':
+            file.write(('%s' % label).center(20))
+            file.write('\n')
+print('End of Execution')

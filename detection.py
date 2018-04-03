@@ -5,6 +5,8 @@ from PIL import Image
 
 face_cascade_alt2 = cv.CascadeClassifier('haarcascade_frontalface_alt2.xml')
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_cascade_alt = cv.CascadeClassifier('haarcascade_frontalface_alt.xml')
+face_cascade_alt_tree = cv.CascadeClassifier('haarcascade_frontalface_alt_tree.xml')
 # face_cascade.load('haarcascade_frontalface_default.xml')
 # print(face_cascade)
 
@@ -29,6 +31,16 @@ for image in images:
     faces_2 = face_cascade.detectMultiScale(image['GRAY'], 1.3, 5)
     for (x,y,w,h) in faces_2:
         if (x,y,w,h) not in faces:
+            # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
+            list_of_faces.append(stretch(image['RGB'][y:y + h, x:x + w]))
+    faces_3 = face_cascade_alt.detectMultiScale(image['GRAY'], 1.3, 5)
+    for (x, y, w, h) in faces_3:
+        if (x, y, w, h) not in faces:
+            # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
+            list_of_faces.append(stretch(image['RGB'][y:y + h, x:x + w]))
+    faces_4 = face_cascade_alt_tree.detectMultiScale(image['GRAY'], 1.3, 5)
+    for (x, y, w, h) in faces_4:
+        if (x, y, w, h) not in faces:
             # cv.rectangle(image['GRAY'], (x, y), (x + w, y + h), (255, 0, 0), 8)
             list_of_faces.append(stretch(image['RGB'][y:y + h, x:x + w]))
 
