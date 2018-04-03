@@ -35,9 +35,3 @@ def contrast_stretch(filepath):
     # print(green)
     print(return_img.shape)
     return return_img
-
-if __name__ == '__main__':
-    filepath = 'train/Arnab.jpg'
-    # cv.imshow('Arnab',contrast_stretch(filepath))
-    # cv.waitKey(0)
-    cv.imwrite('train/mod_Arnab.jpg',contrast_stretch(filepath))
