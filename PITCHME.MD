@@ -336,6 +336,9 @@ but have been found to occur naturally!
 * **Occlusion** - In Image 1, the first guy from right in the second last row has occluded the sight of the person behind him
 * **Blur** - The above mentioned person has made motion relative to camera, and image acquired is blurred
 * **Side Face** - In Image 1,the woman on the left, with in second row from first has not given the pose she gave in training images
+
+---
+
 * **Partial Occlusion** - In Image 1, the person in first row from right has been partially occluded by the person ahead
 * **Partial Acquisition** - In Image 1, to limitation of camera angle, the foremost person in Image 1 is not completely in frame
 * **Abnormal face** - In Image 2, the first person from left in last row has shown a face which he did not train the classifier for
@@ -355,6 +358,8 @@ Logistic regression is named for the function used at the core of the method, th
 ---
 
 The logistic function, also called the sigmoid function was developed by statisticians to describe properties of population growth in ecology, rising quickly and maxing out at the carrying capacity of the environment. It’s an S-shaped curve that can take any real-valued number and map it into a value between 0 and 1, but never exactly at those limits.
+
+---
 
 1 / (1 + e^-value)
 
@@ -467,6 +472,8 @@ A Support Vector Machine (SVM) is a discriminative classifier formally defined b
        Reuben       
       Greeshma   
 ```
+
+---
 
 * **True Positives** - 5
 * **False Positives** - 11
