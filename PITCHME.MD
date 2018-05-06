@@ -1,4 +1,4 @@
-# Automatic Attendance System
+# Smart Attendance System
 
 In this short project for the completion of **AV493** -
 **Machine Learning for Signal Processing**, we have decided
@@ -12,7 +12,7 @@ The team members include:
 * [Gandikota Rohit](https://www.facebook.com/profile.php?id=100011269818272)
 * [Samvram Sahu](https://www.facebook.com/samvram)
 
-A comprehensive presentation regarding this project can be found [here](https://drive.google.com/open?id=1HnJ0JR99sUZYopcIrJ8q8Nsyrv42kJWF).
+---
 
 ## Proposed Methodology
 
@@ -24,10 +24,14 @@ This is an example of data:
 
 ![Test Data](images/IMG_20180124_143333.jpg)
 
+---
+
 Now, with the use of **Haar Cascade Detectors**, we are able to get
 faces, for the given image the Gray image used for Haar is:
 
 ![Processed Data](processed_images/image_10.jpg)
+
+---
 
 Also, we extract and store each face in another directory as:
 
@@ -38,6 +42,8 @@ Also, we extract and store each face in another directory as:
 ![Processed Face](processed_faces/face_detailed_6.jpg)
 
 As, you can see these faces are now extracted 
+
+---
 
 ## Identification or Recognition
 
@@ -55,6 +61,8 @@ Here are a few example photos, of the given dimension,
 ![Example 2](processed_face_resize/face_detailed_5.jpg)
 
 ![Example 3](processed_face_resize/face_detailed_6.jpg)
+
+---
 
 Now we shall proceed with **PCA** or EigenFaces for classification.
 
@@ -113,6 +121,7 @@ i
 -th
 eigenface
 
+---
 
 Since Σ is a diagonal matrix with non-negative real numbers on
 the diagonal in non-ascending order, we can use the first
@@ -163,6 +172,9 @@ Now, a logistic regression classifier is trained for  each feature vector, and i
 The classifier is then shown a preprocessed face extracted from test image to which it responds with a 
 prediction.
 
+
+---
+
 ## Usage
 
 The given training set consists of data from 32 images and we determine feature vectors etc from training set,
@@ -170,6 +182,8 @@ hence only recognition part has to be run daily.
 
 * Keep the images to be marked for attendance in `test`
 * Run the code `recognition.py`
+
+---
 
 ## Understanding the output
 
@@ -270,6 +284,8 @@ Here each label is given **Present** or **Absent** based on the presence in imag
 
 There is also a tentative list of present and absent people in the list.
 
+---
+
 ## Classifier comparison
 
 We proceed to generate a comparative study of five classifiers we have used to classify the data!
@@ -280,10 +296,14 @@ The test images are,
 
 ![Test Image 1](test/IMG_20180402_114622.jpg)
 
+---
+
 ![Test Image 2](test/IMG_20180402_114628.jpg)
 
 The challenges posed here are uniquea and random in the sense that these have not been purposefully created,
 but have been found to occur naturally!
+
+---
 
 ### Challenges
 
@@ -295,6 +315,8 @@ but have been found to occur naturally!
 * **Abnormal face** - In Image 2, the first person from left in last row has shown a face which he did not train the classifier for
 
 Now we shall see how robust each classifier is to each of the above challenges
+
+---
 
 ### Logistic Regression Classifier
 
@@ -309,6 +331,8 @@ The logistic function, also called the sigmoid function was developed by statist
 1 / (1 + e^-value)
 
 Where e is the base of the natural logarithms (Euler’s number or the EXP() function in your spreadsheet) and value is the actual numerical value that you want to transform. 
+
+---
 
 #### Performance
 
@@ -335,6 +359,8 @@ Where e is the base of the natural logarithms (Euler’s number or the EXP() fun
 
 Challenges tackled - **Blur**,  **Abnormal Face**
 
+---
+
 ### K-Nearest Neighbours
 
 In pattern recognition, the k-nearest neighbors algorithm (k-NN) is a non-parametric method used for classification and regression.[1] In both cases, the input consists of the k closest training examples in the feature space. The output depends on whether k-NN is used for classification or regression:
@@ -344,6 +370,8 @@ In k-NN classification, the output is a class membership. An object is classifie
 In k-NN regression, the output is the property value for the object. This value is the average of the values of its k nearest neighbors.
 
 k-NN is a type of instance-based learning, or lazy learning, where the function is only approximated locally and all computation is deferred until classification. The k-NN algorithm is among the simplest of all machine learning algorithms.
+
+---
 
 #### Performance
 
@@ -372,10 +400,13 @@ k-NN is a type of instance-based learning, or lazy learning, where the function 
 
 Challenges tackled - **Blur**,  **Abnormal Face**, **Partial Acqusition**
 
+---
 
 ### Support Vector Machines
 
 A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning), the algorithm outputs an optimal hyperplane which categorizes new examples. In two dimentional space this hyperplane is a line dividing a plane in two parts where in each class lay in either side.
+
+---
 
 #### Performance
 
@@ -406,12 +437,15 @@ A Support Vector Machine (SVM) is a discriminative classifier formally defined b
 
 Challenges tackled - **None**
 
+---
 
 ### Multi Layer Perceptron(MLP) Classifier
 
 A multilayer perceptron (MLP) is a class of feedforward artificial neural network. An MLP consists of at least three layers of nodes. Except for the input nodes, each node is a neuron that uses a nonlinear activation function. MLP utilizes a supervised learning technique called backpropagation for training. Its multiple layers and non-linear activation distinguish MLP from a linear perceptron. It can distinguish data that is not linearly separable.
 
 Multilayer perceptrons are sometimes colloquially referred to as "vanilla" neural networks, especially when they have a single hidden layer.
+
+---
 
 #### Performance
 
@@ -440,6 +474,7 @@ Multilayer perceptrons are sometimes colloquially referred to as "vanilla" neura
 
 Challenges tackled - **Blur**, **Abnormal Face**
 
+---
 
 ### Random Forest Classifier
 
@@ -458,6 +493,8 @@ So finally, it predicts based on the majority of votes from each of the decision
 *    This works well because a single decision tree may be prone to a noise, but aggregate of many decision trees reduce the effect of noise giving more accurate results.
 
 The subsets in different decision trees created may overlap
+
+---
 
 #### Performance
 
@@ -485,6 +522,8 @@ The subsets in different decision trees created may overlap
 
 Challenges tackled - **Blur**, **Abnormal Face**
 
+---
+
 ## Conclusion
 
 Thus we have seen how a few classifiers perform against this very small set
@@ -502,6 +541,8 @@ These classifiers are not robust to many of the challenges mentioned above
 however we have managed to get a high enough accuracy to be used  which can be improved
 further which we will discuss in the possible improvement section.
 
+---
+
 ## Further Work
 
 Due to lack of time and resources we conclude at an intermediate state of this work. Whoever
@@ -515,7 +556,7 @@ much better results.
 * **Test Cases** - The number of test cases has been a very problematic factor, considering a very small data set the given statistics
 which are found are non-deterministic and needs to be proven on a larger data set for verification.
 
-
+---
 
 ## Referrences
 

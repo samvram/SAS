@@ -12,7 +12,7 @@ The team members include:
 * [Gandikota Rohit](https://www.facebook.com/profile.php?id=100011269818272)
 * [Samvram Sahu](https://www.facebook.com/samvram)
 
-A comprehensive presentation regarding this project can be found [here](https://drive.google.com/open?id=1HnJ0JR99sUZYopcIrJ8q8Nsyrv42kJWF).
+A comprehensive presentation regarding this project can be found [here](https://gitpitch.com/samvram/SAS/master).
 
 ## Proposed Methodology
 
