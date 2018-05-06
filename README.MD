@@ -1,4 +1,4 @@
-# Automatic Attendance System
+# Smart Attendance System
 
 In this short project for the completion of **AV493** -
 **Machine Learning for Signal Processing**, we have decided
