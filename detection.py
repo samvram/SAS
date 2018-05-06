@@ -26,7 +26,7 @@ list_of_faces = []
 for image in images:
     faces = face_cascade_alt2.detectMultiScale(image['GRAY'], 1.3, 5)
     for (x,y,w,h) in faces:
-        # cv.rectangle(image['GRAY'],(x,y),(x+w,y+h),(255,0,0), 8)
+        cv.rectangle(image['GRAY'],(x,y),(x+w,y+h),(255,0,0), 8)
         list_of_faces.append(stretch(image['RGB'][y:y+h, x:x+w]))
     faces_2 = face_cascade.detectMultiScale(image['GRAY'], 1.3, 5)
     for (x,y,w,h) in faces_2:

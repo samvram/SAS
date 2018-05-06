@@ -1,0 +1,87 @@
+     Attendance     
+
+  Kaninka - Absent  
+Shubhankur - Present
+   Arnab - Absent   
+  Vamshi - Absent   
+   Pooja - Absent   
+  Rohit - Present   
+  Chinmay - Absent  
+   Suraj - Absent   
+   Anuj - Absent    
+  Ramanan - Absent  
+  Srinika - Absent  
+ Abhinav - Present  
+ Sanjutha - Present 
+ Abhishek - Present 
+  Sairam - Absent   
+ MTech_one - Absent 
+   PhD - Present    
+  Mohit - Present   
+  Pragya - Absent   
+ Kaninika - Present 
+   Sahal - Absent   
+  Swetha - Absent   
+  Harish - Absent   
+ Kalpita - Present  
+ Himanshu - Present 
+ Niranjan - Absent  
+MTech_two - Present 
+  Ujjwala - Absent  
+ Debajyoti - Absent 
+  Ansuman - Absent  
+    Sam - Absent    
+ Shubham - Present  
+Deepsikha - Present 
+ Divyang - Present  
+   Ankit - Absent   
+  Reuben - Present  
+  Pratik - Absent   
+   Neel - Absent    
+ Greeshma - Present 
+   Amal - Absent    
+
+
+      Present       
+     Shubhankur     
+       Rohit        
+      Abhinav       
+      Sanjutha      
+      Abhishek      
+        PhD         
+       Mohit        
+      Kaninika      
+      Kalpita       
+      Himanshu      
+     MTech_two      
+      Shubham       
+     Deepsikha      
+      Divyang       
+       Reuben       
+      Greeshma      
+
+       Absent       
+      Kaninka       
+       Arnab        
+       Vamshi       
+       Pooja        
+      Chinmay       
+       Suraj        
+        Anuj        
+      Ramanan       
+      Srinika       
+       Sairam       
+     MTech_one      
+       Pragya       
+       Sahal        
+       Swetha       
+       Harish       
+      Niranjan      
+      Ujjwala       
+     Debajyoti      
+      Ansuman       
+        Sam         
+       Ankit        
+       Pratik       
+        Neel        
+        Amal        
