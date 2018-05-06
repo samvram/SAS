@@ -282,7 +282,7 @@ The test images are,
 
 ![Test Image 2](test/IMG_20180402_114628.jpg)
 
-The challenges posed here are uniquea and random in the sense that these have not been purposefully created,
+The challenges posed here are unique and random in the sense that these have not been purposefully created,
 but have been found to occur naturally!
 
 ### Challenges
