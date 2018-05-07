@@ -20,11 +20,27 @@ The team members include:
 
 ## Detection
 
-### Haar Cascades
+---
 
-Object detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper Rapid Object Detection using a Boosted Cascade of Simple Features in 2001. It is a machine-learning-based approach where a cascade function is trained from a lot of positive and negative images. It is then used to detect objects in other images.
+### Haar Cascades - Viola Jones Detection
+
+Object detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper 
+[Rapid Object Detection using a Boosted Cascade of Simple Features](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) 
+in 2001. It is a machine-learning-based approach where a cascade function is trained from a lot of positive and negative images. It is then used to detect objects in other images.
 
 ---
+
+![Haar Kernel](haar_kernel.png)
+
+A set of kernel functions used
+
+---
+
+For this they introduced the concept of Cascade of Classifiers. Instead of applying all 6000 features on a window, the features are grouped into different stages of classifiers and applied one-by-one. (Normally the first few stages will contain very many fewer features). If a window fails the first stage, discard it. We don't consider the remaining features on it. If it passes, apply the second stage of features and continue the process. The window which passes all stages is a face region. How is that plan!
+
+
+---
+
 ## Proposed Methodology
 
 We have decided to take a group photo, from a fixed location, in
@@ -358,6 +374,14 @@ Now we shall see how robust each classifier is to each of the above challenges
 
 ### Logistic Regression Classifier
 
+---
+
+![Exam lr](Exam_pass_logistic_curve.jpeg)
+
+Exam pass probability
+
+---
+
 Logistic regression is another technique borrowed by machine learning from the field of statistics.
 
 It is the go-to method for binary classification problems (problems with two class values). In this post you will discover the logistic regression algorithm for machine learning.
@@ -405,9 +429,24 @@ Challenges tackled - **Blur**,  **Abnormal Face**
 
 ---
 
+#### Inferences
+
+* Small Dataset causes Logistic Regression to outperform SVM.
+* Trained for one vs all and hence robust
+
+
+---
+
+
 ### K-Nearest Neighbours
 
-In pattern recognition, the k-nearest neighbors algorithm (k-NN) is a non-parametric method used for classification and regression.[1] In both cases, the input consists of the k closest training examples in the feature space. The output depends on whether k-NN is used for classification or regression:
+In pattern recognition, the k-nearest neighbors algorithm (k-NN) is a non-parametric method used for classification and regression. In both cases, the input consists of the k closest training examples in the feature space. The output depends on whether k-NN is used for classification or regression:
+
+---
+
+![KNN](knn.gif)
+
+How a data point is classified
 
 ---
 
@@ -454,9 +493,23 @@ Challenges tackled - **Blur**,  **Abnormal Face**, **Partial Acqusition**
 
 ---
 
+#### Inference
+
+* K-NN is very bad for higher dimensional data
+* Our feature vector is 1D
+* Yet average performance due to small dataset
+
+---
+
 ### Support Vector Machines
 
 A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning), the algorithm outputs an optimal hyperplane which categorizes new examples. In two dimentional space this hyperplane is a line dividing a plane in two parts where in each class lay in either side.
+
+---
+
+![SVM](svm.gif)
+
+This is a representation of SVM for binary classification case
 
 ---
 
@@ -493,6 +546,15 @@ Challenges tackled - **None**
 
 ---
 
+#### Inferences
+
+* Small dataset leads to very close data points to decision boundary
+* May form false decision boundary
+* Completely goes Haywire
+* Logistic Regression outperforms SVM although similar architecture
+
+---
+
 ### Multi Layer Perceptron(MLP) Classifier
 
 A multilayer perceptron (MLP) is a class of feedforward artificial neural network. An MLP consists of at least three layers of nodes. Except for the input nodes, each node is a neuron that uses a nonlinear activation function. MLP utilizes a supervised learning technique called backpropagation for training. Its multiple layers and non-linear activation distinguish MLP from a linear perceptron. It can distinguish data that is not linearly separable.
@@ -500,6 +562,21 @@ A multilayer perceptron (MLP) is a class of feedforward artificial neural networ
 Multilayer perceptrons are sometimes colloquially referred to as "vanilla" neural networks, especially when they have a single hidden layer.
 
 ---
+
+![MLP](mlp.png)
+
+A representation of MLP
+
+---
+
+#### Hyperparameters
+
+* Hidden Layer size = 80
+* Maximum Iterations = 500
+* Activation Function = Relu
+
+---
+
 
 #### Performance
 
@@ -532,6 +609,15 @@ Challenges tackled - **Blur**, **Abnormal Face**
 
 ---
 
+#### Inferences
+
+* Really appreciable result
+* Can be scaled
+* Lucky to "jitter" out through local minimas
+* A basis for Deeplearning and CNN learnt
+
+---
+
 ### Random Forest Classifier
 
 Random Forest Classifier is ensemble algorithm. Ensembled algorithms are those which combines more than one algorithms of same or different kind for classifying objects. For example, running prediction over Naive Bayes, SVM and Decision Tree and then taking vote for final consideration of class for test object.
@@ -549,7 +635,7 @@ Suppose training set is given as : [X1, X2, X3, X4] with corresponding labels as
 
 *    [X1, X2, X3]
 *    [X1, X2, X4]
-*   [X2, X3, X4]
+*    [X2, X3, X4]
 
 ---
 
@@ -558,6 +644,10 @@ So finally, it predicts based on the majority of votes from each of the decision
 ---
 
 *    This works well because a single decision tree may be prone to a noise, but aggregate of many decision trees reduce the effect of noise giving more accurate results.
+
+---
+
+![Random](random_forest.jpg)
 
 ---
 
@@ -592,6 +682,14 @@ The subsets in different decision trees created may overlap
 * **Accuracy** - 75 %
 
 Challenges tackled - **Blur**, **Abnormal Face**
+
+---
+
+#### Inference
+
+* An ensemble based classifier
+* Combines many decision trees
+* Need to learn more to comment
 
 ---
 
@@ -633,6 +731,10 @@ much better results.
 
 ---
 
+![Cross](cross.png)
+
+---
+
 * **Test Cases** - The number of test cases has been a very problematic factor, considering a very small data set the given statistics
 which are found are non-deterministic and needs to be proven on a larger data set for verification.
 
@@ -647,3 +749,7 @@ which are found are non-deterministic and needs to be proven on a larger data se
 
 We would like to thank everyone who have helped us in this endeavour and acknowledge the  help from 
 professor Mishra, and all our fellow batchmates who have provided a comprehensive dataset for the project!
+ 
+---
+
+#Thank You
