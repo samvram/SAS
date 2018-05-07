@@ -18,6 +18,13 @@ The team members include:
 
 ---
 
+## Detection
+
+### Haar Cascades
+
+Object detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper Rapid Object Detection using a Boosted Cascade of Simple Features in 2001. It is a machine-learning-based approach where a cascade function is trained from a lot of positive and negative images. It is then used to detect objects in other images.
+
+---
 ## Proposed Methodology
 
 We have decided to take a group photo, from a fixed location, in
@@ -596,12 +603,12 @@ data set collected is small and not much tweaking could be done!
 
 ---
 
-The classifiers oin order of their relevance is:-
-* **Random Forest**'
+The classifiers in order of their relevance is:-
 * **Logistic Regression**
+* **Random Forest**
 * **Multi Layer Perceptron**
-* **Support Vector Machines**
 * **K-Nearest Neighbours**
+* **Support Vector Machines**
 
 ---
 
